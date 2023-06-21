@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "b15dab96-ae29-447e-a9f7-2478198a1a66",
+		"name": "SA firstclass team API",
+		"description": "hello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "Register a user",
+							"id": "e7d8658a-eeae-435e-9455-f4ad9bfdb96f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "66433c22-66b2-4146-bb07-6fd310af7917",
+									"name": "User registered successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"user"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}"
+								},
+								{
+									"id": "e19c19e7-a29b-4e4d-8b4f-a99d64e0080b",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"user"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Log in as a user",
+							"id": "4a195ca0-1e48-470f-a7bb-8f2e31619e22",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/user/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "dacd8338-5031-440f-99ce-1d2bac531fb5",
+									"name": "User logged in successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/user/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "eed99e73-d6a5-45d8-9100-8d144f291792",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"surname\": \"laboris Excepteur\",\n  \"flightNumber\": \"ad nulla\",\n  \"seatNumber\": \"voluptate dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/user/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "2483d658-78f0-4588-854d-8b5021b42c94"
+				},
+				{
+					"name": "staff",
+					"item": [
+						{
+							"name": "Register a staff member",
+							"id": "d24fa6dd-5035-43ae-b344-d16dbb449988",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/staff",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"staff"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fe184b8b-da54-4820-a04a-514943387174",
+									"name": "Staff member registered successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/staff",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"staff"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}"
+								},
+								{
+									"id": "1621bb18-10b1-49cf-9d7f-e67aa8fa8124",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/staff",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"staff"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Log in as a staff member",
+							"id": "80d1a355-aef7-4b5c-8199-1dc2d3c4b0ad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/staff/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"staff",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f6ceb54b-1dad-4ab1-beec-ab845f60497a",
+									"name": "Staff member logged in successfully",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/staff/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"staff",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "7e84fdfd-7d2e-48ad-93ff-a14073ce0101",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"staffId\": \"aliqua id fugiat proident dolore\",\n  \"flightId\": \"minim laborum eu\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/staff/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"staff",
+												"login"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "1b3bf957-95e3-455b-a11c-70d76af0c929"
+				}
+			],
+			"id": "a10228bf-0722-4d16-96e1-a4bd1c4b2485"
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Add a product to a flight",
+					"id": "058c48d3-c995-41a9-9d89-438ca7f60483",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"laborum velit non proident elit\",\n  \"name\": \"labore laborum minim quis\",\n  \"description\": \"do anim cillum aute\",\n  \"ingredients\": \"aute id nulla veniam\",\n  \"allergens\": \"tempor labore\",\n  \"image\": \"exercitation\",\n  \"price\": -5042908.268456787,\n  \"flightNumber\": \"sed id dolore pariatur\",\n  \"availability\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "da7ccac9-3450-4c98-90e2-8feb26f6a289",
+							"name": "Product added successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"laborum velit non proident elit\",\n  \"name\": \"labore laborum minim quis\",\n  \"description\": \"do anim cillum aute\",\n  \"ingredients\": \"aute id nulla veniam\",\n  \"allergens\": \"tempor labore\",\n  \"image\": \"exercitation\",\n  \"price\": -5042908.268456787,\n  \"flightNumber\": \"sed id dolore pariatur\",\n  \"availability\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"id\": \"laborum velit non proident elit\",\n  \"name\": \"labore laborum minim quis\",\n  \"description\": \"do anim cillum aute\",\n  \"ingredients\": \"aute id nulla veniam\",\n  \"allergens\": \"tempor labore\",\n  \"image\": \"exercitation\",\n  \"price\": -5042908.268456787,\n  \"flightNumber\": \"sed id dolore pariatur\",\n  \"availability\": false\n}"
+						},
+						{
+							"id": "2544e27c-ccde-475d-bec2-83d81d286956",
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"laborum velit non proident elit\",\n  \"name\": \"labore laborum minim quis\",\n  \"description\": \"do anim cillum aute\",\n  \"ingredients\": \"aute id nulla veniam\",\n  \"allergens\": \"tempor labore\",\n  \"image\": \"exercitation\",\n  \"price\": -5042908.268456787,\n  \"flightNumber\": \"sed id dolore pariatur\",\n  \"availability\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get a list of all products",
+					"id": "8971f1ba-ea30-429c-ae43-7bb010c0f5b1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "7f8ccb48-8d6d-4b33-a9ea-2d5ba086ffec",
+							"name": "List of products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"id\": \"quis\",\n    \"name\": \"amet anim\",\n    \"description\": \"consectetur\",\n    \"ingredients\": \"adipisicing irure anim offic\",\n    \"allergens\": \"adipisicing commodo\",\n    \"image\": \"sit do officia in\",\n    \"price\": 96165493.41964701,\n    \"flightNumber\": \"ullamco ea fugiat adipisicing\",\n    \"availability\": true\n  },\n  {\n    \"id\": \"cillum aliquip dolor laboris esse\",\n    \"name\": \"ea cupidatat nulla\",\n    \"description\": \"dolore et l\",\n    \"ingredients\": \"mollit enim ex\",\n    \"allergens\": \"Duis ullamco et eiusmod\",\n    \"image\": \"occaecat sit fugiat ipsum\",\n    \"price\": 66835233.42564756,\n    \"flightNumber\": \"incididunt cillum ipsum\",\n    \"availability\": true\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a product by ID",
+					"id": "2adfc0c7-9820-4880-be37-e6e657e447e9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/product/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "95af5cf2-c8a7-40ef-bef0-db0189da4a00",
+									"key": "id",
+									"value": "proident",
+									"description": "(Required) ID of the product"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "82d06ab1-850d-436a-9383-a1e3dbe5f2ce",
+							"name": "Product found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "proident",
+											"description": "(Required) ID of the product"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"id\": \"laborum velit non proident elit\",\n  \"name\": \"labore laborum minim quis\",\n  \"description\": \"do anim cillum aute\",\n  \"ingredients\": \"aute id nulla veniam\",\n  \"allergens\": \"tempor labore\",\n  \"image\": \"exercitation\",\n  \"price\": -5042908.268456787,\n  \"flightNumber\": \"sed id dolore pariatur\",\n  \"availability\": false\n}"
+						},
+						{
+							"id": "1791c922-9a87-41ce-8436-9e286d91805b",
+							"name": "Product not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "proident",
+											"description": "(Required) ID of the product"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "7e555854-48bd-4c64-9858-71348c34c21b"
+		}
+	],
+	"variable": [
+		{
+			"id": "51d560a6-e716-4717-a49c-e53530a0ba75",
+			"key": "baseUrl",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}

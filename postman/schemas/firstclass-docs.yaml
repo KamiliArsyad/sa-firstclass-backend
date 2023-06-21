@@ -1,0 +1,191 @@
+openapi: '3.0.0'
+info:
+  version: '0.0.1'
+  title: 'sa-firstclass'
+  description: 'hello'
+
+servers:
+  - url: http://localhost:5000/api
+    description: local production environment
+
+paths:
+  /auth/user:
+    post:
+      summary: Register a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+
+  /auth/user/login:
+    post:
+      summary: Log in as a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User logged in successfully
+        '400':
+          description: Bad Request
+
+  /auth/staff:
+    post:
+      summary: Register a staff member
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Staff'
+      responses:
+        '201':
+          description: Staff member registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Staff'
+        '400':
+          description: Bad Request
+
+  /auth/staff/login:
+    post:
+      summary: Log in as a staff member
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Staff'
+      responses:
+        '200':
+          description: Staff member logged in successfully
+        '400':
+          description: Bad Request
+
+  /product:
+    post:
+      summary: Add a product to a flight
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Product added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Bad Request
+
+    get:
+      summary: Get a list of all products
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+
+  /product/{id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the product
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        surname:
+          type: string
+        flightNumber:
+          type: string
+        seatNumber:
+          type: string
+      required:
+        - surname
+        - flightNumber
+        - seatNumber
+
+    Staff:
+      type: object
+      properties:
+        staffId:
+          type: string
+        flightId:
+          type: string
+      required:
+        - staffId
+        - flightId
+    
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        ingredients:
+          type: string
+        allergens:
+          type: string
+        image:
+          type: string
+        price:
+          type: number
+        flightNumber:
+          type: string
+        availability:
+          type: boolean
+      required:
+        - id
+        - name
+        - description
+        - ingredients
+        - allergens
+        - image
+        - price
+        - flightNumber
+        - availability
+
+    ProductList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Product'
