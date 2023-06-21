@@ -24,7 +24,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
         '400':
           description: Bad Request
 
@@ -40,6 +45,15 @@ paths:
       responses:
         '200':
           description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
         '400':
           description: Bad Request
 
@@ -58,7 +72,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Staff'
+                type: object
+                properties:
+                  token:
+                    type: string
+                  staff:
+                    $ref: '#/components/schemas/Staff'
         '400':
           description: Bad Request
 
@@ -68,9 +87,14 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Staff'
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  staff:
+                    $ref: '#/components/schemas/Staff'
       responses:
         '200':
           description: Staff member logged in successfully
@@ -80,6 +104,8 @@ paths:
   /product:
     post:
       summary: Add a product to a flight
+      security:
+        - bearerAuth: []
       requestBody:
         required: true
         content:
@@ -126,6 +152,53 @@ paths:
         '404':
           description: Product not found
 
+  /checkout:
+    post:
+      summary: Perform checkout with an order
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Checkout successful
+        '400':
+          description: Bad Request
+  
+  /orders:
+    get:
+      summary: Get all orders for the flight
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '400':
+          description: Bad Request
+  
+  /orders/status:
+    get:
+      summary: Get orders of the authenticated customer
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of customer orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '400':
+          description: Bad Request
+
 components:
   schemas:
     User:
@@ -166,14 +239,14 @@ components:
           type: string
         allergens:
           type: string
-        image:
+        imageUrl:
           type: string
         price:
           type: number
         flightNumber:
           type: string
         availability:
-          type: boolean
+          type: number
       required:
         - id
         - name
@@ -189,3 +262,52 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Product'
+    
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        orderDateTime:
+          type: string
+          format: date-time
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderedProduct'
+        status:
+          type: string
+      required:
+        - id
+        - orderDateTime
+        - products
+        - status
+
+    OrderedProduct:
+      type: object
+      properties:
+        productId:
+          type: string
+        quantity:
+          type: integer
+        status:
+          type: string
+      required:
+        - productId
+        - quantity
+        - status
+
+    OrderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Order'
+
+  securitySchemes:
+      bearerAuth:
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+
