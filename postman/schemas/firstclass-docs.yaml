@@ -7,6 +7,8 @@ info:
 servers:
   - url: http://localhost:5000/api
     description: local production environment
+  - url: https://sa-firstclass-backend-production.up.railway.app/api
+    description: Deployed production environment
 
 paths:
   /auth/user:
@@ -264,12 +266,20 @@ components:
           type: string
         category:
           type: string
+          enum: 
+            - food and beverage
+            - amenities
         description:
           type: string
         ingredients:
           type: string
         allergens:
           type: string
+          enum:
+            - dairy
+            - egg
+            - nut
+            - fish
         imageUrl:
           type: string
         price:
