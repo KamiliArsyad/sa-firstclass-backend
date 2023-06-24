@@ -12,6 +12,7 @@ paths:
   /auth/user:
     post:
       summary: Register a user
+      
       requestBody:
         required: true
         content:
@@ -111,7 +112,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Product'
+              $ref: '#/components/schemas/NewProduct'
       responses:
         '201':
           description: Product added successfully
@@ -151,10 +152,10 @@ paths:
                 $ref: '#/components/schemas/Product'
         '404':
           description: Product not found
-
-  /checkout:
+  
+  /order:
     post:
-      summary: Perform checkout with an order
+      summary: Create a new order
       security:
         - bearerAuth: []
       requestBody:
@@ -162,16 +163,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/NewOrder'
       responses:
-        '200':
-          description: Checkout successful
+        '201':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
         '400':
           description: Bad Request
-  
-  /orders:
+
     get:
-      summary: Get all orders for the flight
+      summary: Get all orders
       security:
         - bearerAuth: []
       responses:
@@ -183,8 +187,25 @@ paths:
                 $ref: '#/components/schemas/OrderList'
         '400':
           description: Bad Request
-  
-  /orders/status:
+
+  /order/checkout:
+    post:
+      summary: Perform checkout with an order
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewOrder'
+      responses:
+        '200':
+          description: Checkout successful wow
+        '400':
+          description: Bad Request
+
+  /order/sales:
     get:
       summary: Get orders of the authenticated customer
       security:
@@ -227,11 +248,21 @@ components:
         - flightId
     
     Product:
+      allOf:
+        - $ref: '#/components/schemas/NewProduct'
+        - type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+    
+    NewProduct:
       type: object
       properties:
-        id:
-          type: string
         name:
+          type: string
+        category:
           type: string
         description:
           type: string
@@ -248,7 +279,6 @@ components:
         availability:
           type: number
       required:
-        - id
         - name
         - description
         - ingredients
@@ -264,10 +294,22 @@ components:
         $ref: '#/components/schemas/Product'
     
     Order:
+      allOf:
+        - $ref: '#/components/schemas/NewOrder'
+        - $ref: '#/components/schemas/User'
+        - type: object
+          required:
+            - id
+            - status
+          properties:
+            id:
+              type: string
+            status:
+              type: string
+    
+    NewOrder:
       type: object
       properties:
-        id:
-          type: string
         orderDateTime:
           type: string
           format: date-time
@@ -275,13 +317,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrderedProduct'
-        status:
-          type: string
       required:
-        - id
         - orderDateTime
         - products
-        - status
 
     OrderedProduct:
       type: object
@@ -290,12 +328,9 @@ components:
           type: string
         quantity:
           type: integer
-        status:
-          type: string
       required:
         - productId
         - quantity
-        - status
 
     OrderList:
       type: array
@@ -307,7 +342,4 @@ components:
         type: http
         scheme: bearer
         bearerFormat: JWT
-
-security:
-  - bearerAuth: []
 
