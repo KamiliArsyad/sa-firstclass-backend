@@ -9,3 +9,6 @@ NODE_ENV=<development|production>
 PORT=<port number>
 MONGO_URI=<>
 ```
+
+# Frontend
+**Access the frontend [here](https://github.com/jasonchristopher21/first-class-frontend/) 🥳**
